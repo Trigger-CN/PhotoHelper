@@ -11,18 +11,8 @@ on:
 
 jobs:
   build:
-    name: Build (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: windows-latest
-            artifact_name: win64
-          - os: ubuntu-latest
-            artifact_name: linux
-          - os: macos-latest
-            artifact_name: mac
+    name: Build (Windows)
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -49,12 +39,11 @@ jobs:
         run: npm run dist
         env:
           NODE_ENV: production
-          ELECTRON_MIRROR: "https://npmmirror.com/mirrors/electron/"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.artifact_name }}-build
+          name: win64-build
           path: release/
           retention-days: 7
 
@@ -78,16 +67,6 @@ jobs:
         run: |
           cd release
           for file in *.exe; do
-            if [ -f "$file" ]; then
-              sha256sum "$file" > "${file}.sha256sum"
-            fi
-          done
-          for file in *.dmg; do
-            if [ -f "$file" ]; then
-              sha256sum "$file" > "${file}.sha256sum"
-            fi
-          done
-          for file in *.AppImage; do
             if [ -f "$file" ]; then
               sha256sum "$file" > "${file}.sha256sum"
             fi

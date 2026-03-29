@@ -70,6 +70,14 @@
       ],
       "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
     },
+    "mac": {
+      "target": ["zip"],
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
+    },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
