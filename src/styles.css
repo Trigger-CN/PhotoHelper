@@ -1,0 +1,332 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #181d31 0%, #0a0b10 50%, #07080c 100%);
+  overflow: hidden;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.shell {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  border: 1px solid #2b2f4a;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(111, 124, 255, 0.15);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+
+.top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.path-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  color: #cfd8ff;
+  font-size: 13px;
+  text-transform: lowercase;
+}
+
+.content-row {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 12px;
+  min-height: 0;
+  flex: 1 1 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.content-row > * {
+  min-height: 0;
+}
+
+.left-panel,
+.right-panel {
+  background: rgba(12, 14, 22, 0.88) !important;
+  border: 1px solid #2b2f4a !important;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.left-panel .ant-card-body,
+.right-panel .ant-card-body {
+  padding: 14px !important;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.list-toolbar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.list-wrap {
+  flex: 1 1 0;
+  height: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #2b2f4a;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.file-item {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  gap: 10px;
+}
+
+.file-item:hover {
+  background: rgba(111, 124, 255, 0.08);
+  border-color: rgba(111, 124, 255, 0.3);
+}
+
+.file-item.active {
+  border-color: rgba(111, 124, 255, 0.85);
+  background: rgba(111, 124, 255, 0.12);
+}
+
+.file-item-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.file-item-title {
+  display: flex;
+  align-items: center;
+}
+
+.file-item-desc {
+  color: #9ca5cc;
+  font-size: 12px;
+}
+
+.file-name {
+  max-width: 260px;
+}
+
+.preview-title {
+  color: #e9eeff;
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+.preview-box {
+  border: 1px solid #2b2f4a;
+  border-radius: 12px;
+  flex: 1 1 0;
+  min-height: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(5, 6, 10, 0.25));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info-panel {
+  flex: 0 0 auto;
+  margin-top: 10px;
+  border: 1px solid #2b2f4a;
+  border-radius: 10px;
+  background: rgba(17, 19, 30, 0.7);
+  padding: 10px 12px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.info-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+}
+
+.info-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+}
+
+.info-item {
+  color: #cfd8ff;
+  font-size: 12px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.copy-options {
+  flex: 0 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.actions {
+  flex: 0 0 auto;
+  margin-top: 12px;
+}
+
+.copy-progress {
+  flex: 0 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.muted {
+  color: #9ca5cc !important;
+}
+
+/* Skeleton loading */
+.preview-skeleton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(111, 124, 255, 0.03) 0%, rgba(111, 124, 255, 0.08) 100%);
+  border-radius: 12px;
+}
+
+.skeleton-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgba(111, 124, 255, 0.15) 25%, rgba(111, 124, 255, 0.25) 50%, rgba(111, 124, 255, 0.15) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(111, 124, 255, 0.1) 25%, rgba(111, 124, 255, 0.18) 50%, rgba(111, 124, 255, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.ant-input,
+.ant-btn,
+.ant-tabs-tab {
+  transition: all 0.2s ease;
+}
+
+/* Ant Design Switch customization for dark theme */
+.ant-switch {
+  background: rgba(111, 124, 255, 0.2);
+}
+
+.ant-switch-checked {
+  background: linear-gradient(135deg, #6f7cff 0%, #8b5cf6 100%) !important;
+}
+
+/* Better focus states */
+.ant-btn:focus-visible {
+  outline: 2px solid rgba(111, 124, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Tab hover effect */
+.ant-tabs-tab:hover {
+  color: #8b9dff;
+}
+
+/* Card hover subtle effect */
+.ant-card {
+  transition: box-shadow 0.3s ease;
+}
+
+/* Progress bar animation */
+.ant-progress-bg {
+  transition: width 0.3s ease !important;
+}
